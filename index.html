@@ -1,7 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABAKADA</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white; /* Set background color to white */
+    }
+    .content {
+        font-size: 36px;
+        font-family: Arial, sans-serif; /* Default font family */
+    }
+    .font-selector {
+        margin-top: 20px;
+    }
+    /* You can add more styles for the font selector and background image selector */
+</style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<div class="content" id="content">ABAKADA</div>
+<div class="font-selector">
+    <label for="font">Select Font:</label>
+    <select id="font" onchange="changeFont()">
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="Georgia, serif">Georgia</option>
+        <option value="Verdana, sans-serif">Verdana</option>
+        <!-- Add more font options as needed -->
+    </select>
+</div>
+<!-- Add placeholder for background image selector -->
+<script>
+function changeFont() {
+    var font = document.getElementById("font").value;
+    document.getElementById("content").style.fontFamily = font;
+}
+// You can add JavaScript code to handle changing background images here
+</script>
 </body>
 </html>
