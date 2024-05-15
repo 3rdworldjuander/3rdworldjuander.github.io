@@ -13,39 +13,14 @@
         align-items: center;
         height: 100vh;
         background-color: white; /* Set background color to white */
-    }
-    .content {
+        font-family: Georgia, serif; /* Set default font to Georgia */
         font-size: 36px;
-        font-family: Arial, sans-serif; /* Default font family */
     }
-    .font-selector {
-        margin-top: 20px;
-    }
-    /* You can add more styles for the font selector and background image selector */
 </style>
 </head>
 <body>
-<div class="content" id="content">ABAKADA</div>
-<div class="font-selector">
-    <label for="font">Select Font:</label>
-    <select id="font" onchange="changeFont()">
-        <option value="Arial, sans-serif">Arial</option>
-        <option value="Georgia, serif">Georgia</option>
-        <option value="Verdana, sans-serif">Verdana</option>
-        <option value="Avenir, sans-serif">Avenir</option>
-        <option value="Baskerville, sans-serif">Baskerville</option>
-
-
-        <!-- Add more font options as needed -->
-    </select>
-</div>
+<div class="content">ABAKADA</div>
+<!-- No font selector is present -->
 <!-- Add placeholder for background image selector -->
-<script>
-function changeFont() {
-    var font = document.getElementById("font").value;
-    document.getElementById("content").style.fontFamily = font;
-}
-// You can add JavaScript code to handle changing background images here
-</script>
 </body>
 </html>
