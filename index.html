@@ -12,15 +12,42 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: white; /* Set background color to white */
-        font-family: Georgia, serif; /* Set default font to Georgia */
+        background-color: white;
+        font-family: Georgia, serif;
         font-size: 36px;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 1s ease-in-out;
+    }
+    .content {
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 20px;
+        border-radius: 10px;
     }
 </style>
 </head>
 <body>
 <div class="content">ABAKADA</div>
-<!-- No font selector is present -->
-<!-- Add placeholder for background image selector -->
+
+<script>
+    const images = [
+        'images/image1.jpg',
+        'images/image2.jpg',
+        'images/image3.jpg'
+        // ,
+        // 'images/image4.jpg',
+        // 'images/image5.jpg'
+    ];
+    let currentIndex = 0;
+
+    function changeBackground() {
+        document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    // Change background immediately and then every 15 seconds
+    changeBackground();
+    setInterval(changeBackground, 15000);
+</script>
 </body>
 </html>
