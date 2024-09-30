@@ -15,14 +15,12 @@
         background-color: white;
         font-family: Georgia, serif;
         font-size: 36px;
-        background-size: cover;
-        background-position: center;
-        transition: background-image 3s ease-in-out;
     }
     .content {
         background-color: rgba(255, 255, 255, 0.7);
         padding: 20px;
         border-radius: 10px;
+        z-index: 2;
     }
     .visually-hidden {
         position: absolute;
@@ -35,32 +33,58 @@
         white-space: nowrap;
         border: 0;
     }
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 2s ease-in-out;
+        z-index: 1;
+    }
 </style>
 </head>
 <body>
 <div class="content">ABAKADA</div>
 <div id="background-description" class="visually-hidden" aria-live="polite"></div>
+<div id="background1" class="background"></div>
+<div id="background2" class="background"></div>
 
 <script>
     const images = [
-        {src: 'images/image1.jpg', alt: 'A drawing of a tree, rainbow, and person'},
-        {src: 'images/image2.jpg', alt: 'A picture of the beach'},
-        {src: 'images/image3.jpg', alt: 'A drawing of a rainbow and a person'}
-        // ,
-        // {src: 'images/image4.jpg', alt: 'Description of image 4'},
-        // {src: 'images/image5.jpg', alt: 'Description of image 5'}
+        {src: 'images/image1.jpg', alt: 'Description of image 1'},
+        {src: 'images/image2.jpg', alt: 'Description of image 2'},
+        {src: 'images/image3.jpg', alt: 'Description of image 3'},
+        {src: 'images/image4.jpg', alt: 'Description of image 4'},
+        {src: 'images/image5.jpg', alt: 'Description of image 5'}
     ];
     let currentIndex = 0;
+    let currentBackground = 1;
 
     function changeBackground() {
-        const currentImage = images[currentIndex];
-        document.body.style.backgroundImage = `url('${currentImage.src}')`;
-        document.getElementById('background-description').textContent = currentImage.alt;
-        currentIndex = (currentIndex + 1) % images.length;
+        const nextIndex = (currentIndex + 1) % images.length;
+        const fadeOutElement = document.getElementById(`background${currentBackground}`);
+        const fadeInElement = document.getElementById(`background${3 - currentBackground}`);
+        
+        fadeInElement.style.backgroundImage = `url('${images[nextIndex].src}')`;
+        fadeInElement.style.opacity = '1';
+        fadeOutElement.style.opacity = '0';
+        
+        document.getElementById('background-description').textContent = images[nextIndex].alt;
+        
+        currentIndex = nextIndex;
+        currentBackground = 3 - currentBackground;
     }
 
-    // Change background immediately and then every 15 seconds
-    changeBackground();
+    // Set initial background
+    document.getElementById('background1').style.backgroundImage = `url('${images[0].src}')`;
+    document.getElementById('background1').style.opacity = '1';
+    document.getElementById('background2').style.opacity = '0';
+    document.getElementById('background-description').textContent = images[0].alt;
+
+    // Change background every 15 seconds
     setInterval(changeBackground, 15000);
 </script>
 </body>
