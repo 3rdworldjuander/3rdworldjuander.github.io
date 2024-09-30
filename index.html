@@ -17,31 +17,45 @@
         font-size: 36px;
         background-size: cover;
         background-position: center;
-        transition: background-image 5s ease-in-out;
+        transition: background-image 3s ease-in-out;
     }
     .content {
         background-color: rgba(255, 255, 255, 0.7);
         padding: 20px;
         border-radius: 10px;
     }
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
 </style>
 </head>
 <body>
 <div class="content">ABAKADA</div>
+<div id="background-description" class="visually-hidden" aria-live="polite"></div>
 
 <script>
     const images = [
-        'images/image1.jpg',
-        'images/image2.jpg',
-        'images/image3.jpg'
+        {src: 'images/image1.jpg', alt: 'A drawing of a tree, rainbow, and person'},
+        {src: 'images/image2.jpg', alt: 'A picture of the beach'},
+        {src: 'images/image3.jpg', alt: 'A drawing of a rainbow and a person'}
         // ,
-        // 'images/image4.jpg',
-        // 'images/image5.jpg'
+        // {src: 'images/image4.jpg', alt: 'Description of image 4'},
+        // {src: 'images/image5.jpg', alt: 'Description of image 5'}
     ];
     let currentIndex = 0;
 
     function changeBackground() {
-        document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+        const currentImage = images[currentIndex];
+        document.body.style.backgroundImage = `url('${currentImage.src}')`;
+        document.getElementById('background-description').textContent = currentImage.alt;
         currentIndex = (currentIndex + 1) % images.length;
     }
 
