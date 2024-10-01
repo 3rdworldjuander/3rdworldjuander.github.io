@@ -5,89 +5,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABAKADA</title>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: white;
-        font-family: Georgia, serif;
-        font-size: 36px;
-    }
-    .content {
-        background-color: rgba(255, 255, 255, 0.7);
-        padding: 20px;
-        border-radius: 10px;
-        z-index: 2;
-    }
-    .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-    }
-    .background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        transition: opacity 2s ease-in-out;
-        z-index: 1;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    font-family: Georgia, serif;
+    font-size: 36px;
+}
+.content {
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 2s ease-in-out;
+    z-index: 1;
+}
 </style>
 </head>
 <body>
-<div class="content">ABAKADA</div>
+<div id="content" class="content">ABAKADA</div>
 <div id="background-description" class="visually-hidden" aria-live="polite"></div>
 <div id="background1" class="background"></div>
 <div id="background2" class="background"></div>
-
 <script>
-    const images = [
-        // Minimum size: 1080 x 1920, Optimal size: 2560x1440, Aspect ration: 16:9, Maximum file size: 1MB
-        {src: 'images/image1.jpg', alt: 'A drawing of a rainbow, tree, and person'},
-        {src: 'images/image2.jpg', alt: 'A drawing of autumn leaves'},
-        {src: 'images/image3.jpg', alt: 'A drawing of a rainbow and a person'},
-        {src: 'images/image4.jpg', alt: 'Abstract drawing of blue paint on yellow paper'},
-        {src: 'images/image5.jpg', alt: 'Abstract drawing on yellow paper'},
-        {src: 'images/image.jpg', alt: 'White background'}
-    ];
-    let currentIndex = 0;
-    let currentBackground = 1;
+// Adjust this value to change the opacity of the ABAKADA background (0.0 to 1.0)
+const abakadaBackgroundOpacity = 0.3;
 
-    function changeBackground() {
-        const nextIndex = (currentIndex + 1) % images.length;
-        const fadeOutElement = document.getElementById(`background${currentBackground}`);
-        const fadeInElement = document.getElementById(`background${3 - currentBackground}`);
-        
-        fadeInElement.style.backgroundImage = `url('${images[nextIndex].src}')`;
-        fadeInElement.style.opacity = '1';
-        fadeOutElement.style.opacity = '0';
-        
-        document.getElementById('background-description').textContent = images[nextIndex].alt;
-        
-        currentIndex = nextIndex;
-        currentBackground = 3 - currentBackground;
-    }
+const images = [
+    {src: 'images/image1.jpg', alt: 'A drawing of a rainbow, tree, and person'},
+    {src: 'images/image2.jpg', alt: 'A drawing of autumn leaves'},
+    {src: 'images/image3.jpg', alt: 'A drawing of a rainbow and a person'},
+    {src: 'images/image4.jpg', alt: 'Abstract drawing of blue paint on yellow paper'},
+    {src: 'images/image5.jpg', alt: 'Abstract drawing on yellow paper'},
+    {src: 'images/image.jpg', alt: 'White background'}
+];
+let currentIndex = 0;
+let currentBackground = 1;
 
-    // Set initial background
-    document.getElementById('background1').style.backgroundImage = `url('${images[0].src}')`;
-    document.getElementById('background1').style.opacity = '1';
-    document.getElementById('background2').style.opacity = '0';
-    document.getElementById('background-description').textContent = images[0].alt;
+function changeBackground() {
+    const nextIndex = (currentIndex + 1) % images.length;
+    const fadeOutElement = document.getElementById(`background${currentBackground}`);
+    const fadeInElement = document.getElementById(`background${3 - currentBackground}`);
+    fadeInElement.style.backgroundImage = `url('${images[nextIndex].src}')`;
+    fadeInElement.style.opacity = '1';
+    fadeOutElement.style.opacity = '0';
+    document.getElementById('background-description').textContent = images[nextIndex].alt;
+    currentIndex = nextIndex;
+    currentBackground = 3 - currentBackground;
+}
 
-    // Change background every 15 seconds
-    setInterval(changeBackground, 8900);
+// Set initial background
+document.getElementById('background1').style.backgroundImage = `url('${images[0].src}')`;
+document.getElementById('background1').style.opacity = '1';
+document.getElementById('background2').style.opacity = '0';
+document.getElementById('background-description').textContent = images[0].alt;
+
+// Set ABAKADA background opacity
+document.getElementById('content').style.backgroundColor = `rgba(255, 255, 255, ${abakadaBackgroundOpacity})`;
+
+// Change background every 8.9 seconds
+setInterval(changeBackground, 8900);
 </script>
 </body>
 </html>
