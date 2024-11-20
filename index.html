@@ -1,55 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABAKADA</title>
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: white;
-    font-family: Georgia, serif;
-    font-size: 36px;
-}
-.content {
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 2;
-}
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: opacity 2s ease-in-out;
-    z-index: 1;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABA Therapy and Early Intervetion Services - ABAKADA</title>
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Georgia, serif;
+        }
+        .header {
+            margin-top: 4rem;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1rem;
+        }
+        .launching {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-size: 1.0rem;
+            color: #666;
+        }
+        .cta-button {
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #333;
+        }
+        .background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            object-fit: cover;
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
 </head>
 <body>
-<div id="content" class="content">ABAKADA</div>
+    <div class="header">ABAKADA</div>
+    <div class="main-content">
+        <div class="launching">Launching <br> soon!</div>
+        <div class="subtitle">We are currently making some <br> improvements to our website!</div>
+        <a href="https://abakada-47312783.hubspotpagebuilder.com/join-the-team" class="cta-button">Join our team</a>
+    </div>
 <div id="background-description" class="visually-hidden" aria-live="polite"></div>
 <div id="background1" class="background"></div>
 <div id="background2" class="background"></div>
+
+
 <script>
 // Adjust this value to change the opacity of the ABAKADA background (0.0 to 1.0)
 const abakadaBackgroundOpacity = 0.3;
