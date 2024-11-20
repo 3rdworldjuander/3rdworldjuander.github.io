@@ -55,11 +55,11 @@ body {
 const abakadaBackgroundOpacity = 0.3;
 
 const images = [
-    {src: 'images/image1.jpg', alt: 'A drawing of a rainbow, tree, and person'},
-    // {src: 'images/image2.jpg', alt: 'A drawing of autumn leaves'},
-    {src: 'images/image3.jpg', alt: 'A drawing of a rainbow and a person'},
-    // {src: 'images/image4.jpg', alt: 'Abstract drawing of blue paint on yellow paper'},
-    {src: 'images/image5.jpg', alt: 'Abstract drawing on yellow paper'},
+    {src: 'images/image1.jpg', alt: 'A drawing of autumn leaves'},
+    // {src: 'images/image2.jpg', alt: 'Abstract drawing of blue paint on yellow paper'},
+    {src: 'images/image3.jpg', alt: 'A drawing of a rainbow'},
+    // {src: 'images/image4.jpg', alt: 'Abstract drawing on yellow paper'},
+    // {src: 'images/image5.jpg', alt: 'A drawing of a tree, rainbow, and a person flying a kite'},
     {src: 'images/image.jpg', alt: 'White background'}
 ];
 let currentIndex = 0;
@@ -87,7 +87,7 @@ document.getElementById('background-description').textContent = images[0].alt;
 document.getElementById('content').style.backgroundColor = `rgba(255, 255, 255, ${abakadaBackgroundOpacity})`;
 
 // Change background every 8.9 seconds
-setInterval(changeBackground, 8900);
+setInterval(changeBackground, 120000);
 </script>
 </body>
 </html>
