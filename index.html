@@ -17,7 +17,20 @@
         .header {
             margin-top: 4rem;
             font-size: 2.5rem;
+            font-weight: bolder;
+            color: #223d3c;
+            /* background: #f8f3f2; Subtle gradient background */
+            /* padding: 0.5rem; Adds spacing inside the background */
+            /* display: inline-block; Ensures background only covers the text */
+            /* border-radius: 8px; Optional: adds rounded corners */
+            text-shadow: 0 0 8px #f8f3f2; /* Shadow effect with your chosen color */
+        }
+        .underheader {
+            margin-top: 1rem;
+            font-size: 1rem;
             font-weight: bold;
+            color: #9a4c2e;
+            text-shadow: 0 0 8px #f8f3f2; /* Shadow effect with your chosen color */
         }
         .main-content {
             flex: 1;
@@ -31,16 +44,21 @@
         .launching {
             font-size: 5rem;
             font-weight: bold;
+            color: #223d3c; /* Change to your desired color */
+            text-shadow: 0 0 8px #f8f3f2; /* Shadow effect with your chosen color */
+
         }
         .subtitle {
             font-size: 1.0rem;
-            color: #666;
+            color: #456922;
+            text-shadow: 0 0 8px #f8f3f2; /* Shadow effect with your chosen color */
+
         }
         .cta-button {
             margin-top: 2rem;
             padding: 0.8rem 2rem;
-            background-color: #000;
-            color: white;
+            background-color: #9a4c2e;
+            color: #f8f3f2;
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
@@ -77,6 +95,7 @@
 </head>
 <body>
     <div class="header">ABAKADA</div>
+    <div class="underheader"> ABA Therapy and Early Intervention Services</div>
     <div class="main-content">
         <div class="launching">Launching <br> soon!</div>
         <div class="subtitle">We are currently making some <br> improvements to our website!</div>
@@ -124,7 +143,7 @@ document.getElementById('background-description').textContent = images[0].alt;
 document.getElementById('content').style.backgroundColor = `rgba(255, 255, 255, ${abakadaBackgroundOpacity})`;
 
 // Change background every 8.9 seconds
-setInterval(changeBackground, 120000);
+setInterval(changeBackground, 5000);
 </script>
 </body>
 </html>
